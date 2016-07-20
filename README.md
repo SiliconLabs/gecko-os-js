@@ -1,31 +1,31 @@
-# Overview of the WiConnect JavaScript API
+# Overview of the ZentriOS JavaScript API
 
-The WiConnect JavaScript API provides a framework for controlling a WiConnect device using the HTTP RESTful API. JavaScript using the WiConnect JavaScript API can run on a page served by the device HTTP Server, or, with the appropriate CORS configuration, on a page served by a remote server.
+The ZentriOS JavaScript API provides a framework for controlling a ZentriOS device using the HTTP RESTful API. JavaScript using the ZentriOS JavaScript API can run on a page served by the device HTTP Server, or, with the appropriate CORS configuration, on a page served by a remote server.
 
-Using the WiConnect JavaScript API you can run any command on the device, and process the command response as desired.
+Using the ZentriOS JavaScript API you can run any command on the device, and process the command response as desired.
 
-The WiConnect Web App provides an example of a full-featured JavaScript application using the WiConnect JavaScript API.
+The ZentriOS Web App provides an example of a full-featured JavaScript application using the ZentriOS JavaScript API.
 
 
-For details of WiConnect commands, see [WiConnect Documentation](http://wiconnect.ack.me).
+For details of ZentriOS commands, see [ZentriOS Documentation](https://docs.zentri.com).
 
-To use the WiConnect JavaScript API, you create a WiConnectDevice object, then run WiConnect command methods on the object, with callbacks to handle the command responses.
+To use the ZentriOS JavaScript API, you create a ZentriOSDevice object, then run ZentriOS command methods on the object, with callbacks to handle the command responses.
 
 # Installation
 
-WiconnectJS can be installed with either [NPM](https://www.npmjs.com/) or [Bower](http://bower.io)
+ZentriOSJS can be installed with either [NPM](https://www.npmjs.com/) or [Bower](http://bower.io)
 
 ```
-npm install wiconnectjs
+npm install zentriosjs
 ```
 
 ```
-bower install wiconnectjs
+bower install zentriosjs
 ```
 
-# Using WiConnectJS
+# Using ZentriOSJS
 
-### Configure WiConnect Device
+### Configure ZentriOS Device
 ```javascript
 //join network
 nup -s
@@ -40,30 +40,30 @@ save
 reboot
 ```
 
-### Instantiating a WiConnectDevice Object
-A WiConnectDevice object has a function corresponding to each of the WiConnect commands, as well as the properties:
+### Instantiating a ZentriOSDevice Object
+A ZentriOSDevice object has a function corresponding to each of the ZentriOS commands, as well as the properties:
 
-* `host` string - hostname or IP address of the WiConnect Device to communicate with - default `""` (localhost)
+* `host` string - hostname or IP address of the ZentriOS Device to communicate with - default `""` (localhost)
 * `timeout` integer - maximum amount of time to wait for response from the device - default `120000` (milliseconds)
 * `retries` integer - number of attempts to issue command when a command request fails - default `1`
 * `auth` object `{user: "username", pass: "password"}` - HTTP basic auth credentials - default `null`
 
-To create a WiConnectDevice object, the syntax is:
+To create a ZentriOSDevice object, the syntax is:
 
 ```javascript
-var device = new WiConnectDevice({host: 'http://[deviceIP]' [, auth: {user: 'username', pass: 'password'}]|[, timeout: 20000]|[, retries: 5]});
+var device = new ZentriOSDevice({host: 'http://[deviceIP]' [, auth: {user: 'username', pass: 'password'}]|[, timeout: 20000]|[, retries: 5]});
 ```
 
 example:
 ```javascript
-var device = new WiConnectDevice({host: 'http://12.34.56.78'});
+var device = new ZentriOSDevice({host: 'http://12.34.56.78'});
 ```
 
 
 
 ### Issue command to device
 
-To call a WiConnect command, run `device.cmd()`, where `cmd` is the name of the WiConnect command.
+To call a ZentriOS command, run `device.cmd()`, where `cmd` is the name of the ZentriOS command.
 
 ```javascript
 device.cmd([{args: 'command_arguments' [, flags: 0]}]);
@@ -74,10 +74,10 @@ The first argument of the ``device.cmd()`` method is an optional arguments objec
 
 #### arguments
 * `args` string - string of command arguments - default `""`
-* `flags` integer - [WiConnect HTTP flag](http://wiconnect.ack.me/2.1/networking_and_security#http_library) - default `0`
+* `flags` integer - [ZentriOS HTTP flag](https://docs.zentri.com/wifi/cmd/latest/networking-and-security#http-library) - default `0`
 * `timeout` integer - maximum amount of time to wait for response from the device - default `120000` (milliseconds)
 * `retries` integer - number of attempts to issue this command when a command request fails - default `1`
-* `acceptCommandFailed` boolean - optional flag to specify if an error should be returned when WiConnect response with `Command Failed\r\n` - default `true`
+* `acceptCommandFailed` boolean - optional flag to specify if an error should be returned when ZentriOS response with `Command Failed\r\n` - default `true`
 
 example:
 ```javascript
@@ -91,7 +91,7 @@ device.ls();
 device.ls({args: '-v'});
 ```
 
-A WiConnect command request object will be returned each time a command is issued to a device, and can be stored for later use, with the following methods:
+A ZentriOS command request object will be returned each time a command is issued to a device, and can be stored for later use, with the following methods:
 
 * `done()` - set promise function to be executed when a successful response is received (see below)
 * `fail()` - set promise function to be executed when a request fails (see below)
@@ -103,7 +103,7 @@ example:
 var versionRequest = device.ver();
 ```
 
-To process the WiConnect command response, you need to either set a callback function, or set promise functions for parsing the response from the command request.
+To process the ZentriOS command response, you need to either set a callback function, or set promise functions for parsing the response from the command request.
 
 ### Issue command to device defining callback function
 
@@ -154,7 +154,7 @@ versionRequest.always(function(res) {
 versionRequest.done(function(err, res) {
   console.log('success!');
   console.log('response: ', res);
-  console.log('WiConnect Version:', res.response);
+  console.log('ZentriOS Version:', res.response);
 });
 
 //setup failure function for when HTTP error received
@@ -238,7 +238,7 @@ versionRequest.abort();
 
 ### `file_create` or `fcr`
 
-The `file_create`  command accepts two additional arguments `filename` and `data`  for writing a file to the WiConnect device. The `data` argument is expected to be of type [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).
+The `file_create`  command accepts two additional arguments `filename` and `data`  for writing a file to the ZentriOS device. The `data` argument is expected to be of type [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).
 
 example:
 ```javascript
@@ -254,7 +254,7 @@ var stringToArrayBuffer = function(str){
 
 var fileData = stringToArrayBuffer("Hello World!");
 
-// create file on WiConnect device
+// create file on ZentriOS device
 device.file_create({filename: 'testFile.txt', data: fileData}, function(err, res){
   if(err) {
     // error creating file
@@ -263,21 +263,21 @@ device.file_create({filename: 'testFile.txt', data: fileData}, function(err, res
   }
 
   // file created successfully
-  console.log('testFile.txt created successfully on WiConnect device');
+  console.log('testFile.txt created successfully on ZentriOS device');
 });
 ```
 
-The WiConnectJS API is able to manage files of any size.
+The ZentriOSJS API is able to manage files of any size.
 
-The WiConnect HTTP server has a maximum request size limit of 4KB per request. WiConnectJS handles this limit for you by calculating the file CRC, creating a new file and requesting an open stream handle, then writing file chunks to the open file stream. If you are inspecting network requests while using `file_create` you will see multiple requests being sent to the WiConnect Device.
+The ZentriOS HTTP server has a maximum request size limit of 4KB per request. ZentriOSJS handles this limit for you by calculating the file CRC, creating a new file and requesting an open stream handle, then writing file chunks to the open file stream. If you are inspecting network requests while using `file_create` you will see multiple requests being sent to the ZentriOS Device.
 
 ### `stream_write` or `write`
 
-The `stream_write` command accepts the additional argument `data`  for writing a data to an open stream on the WiConnect device. The `data` argument is expected to be of type [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).
+The `stream_write` command accepts the additional argument `data`  for writing a data to an open stream on the ZentriOS device. The `data` argument is expected to be of type [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).
 
 example:
 ```javascript
-// ID of open stream on WiConnect device
+// ID of open stream on ZentriOS device
 var stream_id = 0;
 
 // data to write to stream
@@ -302,9 +302,9 @@ device.stream_write({
   });
 ```
 
-The WiConnectJS API is able to writing data of any size to open streams.
+The ZentriOSJS API is able to writing data of any size to open streams.
 
-The WiConnect HTTP server has a maximum request size limit of 4KB per request. WiConnectJS handles this limit by writing data chunks sequentially to the open file stream. If you are inspecting network requests while using `stream_write` you will see multiple requests being sent to the WiConnect Device.
+The ZentriOS HTTP server has a maximum request size limit of 4KB per request. ZentriOSJS handles this limit by writing data chunks sequentially to the open file stream. If you are inspecting network requests while using `stream_write` you will see multiple requests being sent to the ZentriOS Device.
 
 # Reading files
 
@@ -391,9 +391,9 @@ ws.onmessage = function(event) {
 // function to execute when the socket has been opened successfully
 ws.onopen = function() {
   // log a message once websocket connection handshake is complete
-  console.log('WebSocket open to WiConnect device!');
+  console.log('WebSocket open to ZentriOS device!');
 
-  // use 'list' command using a serial terminal, or using WiConnectJS
+  // use 'list' command using a serial terminal, or using ZentriOSJS
   // open streams on the device will be displayed including a 'WEBS' stream
   // indicating the open websocket
   // e.g. using serial terminal
@@ -401,10 +401,10 @@ ws.onopen = function() {
   // ! # Type  Info
   // # 0 WEBS  12.34.56.78:80 12.34.56.78:54460
 
-  // now that the websocket is connected, send a message to the WiConnect device
+  // now that the websocket is connected, send a message to the ZentriOS device
   ws.send('I am a teapot.');
 
-  // using a serial terminal, or using WiConnectJS read the stream
+  // using a serial terminal, or using ZentriOSJS read the stream
   // e.g. using serial terminal
   // > read 0 14
   // I am a teapot.
@@ -413,7 +413,7 @@ ws.onopen = function() {
   ws.close();
 
   // note: the websocket will not be immediately closed
-  // WiConnect will keep the websocket open until all stream data has been read
+  // ZentriOS will keep the websocket open until all stream data has been read
   // e.g.
   // > read 0 1
   // > [2015-03-23 | 03:21:37: Closed: 0]
@@ -422,12 +422,12 @@ ws.onopen = function() {
 
 ## Licence
 
-WiConnect Web App, WiConnect JS API Library & WiConnect JS Build System
+ZentriOS Web App, ZentriOS JS API Library & ZentriOS JS Build System
 
 Copyright (C) 2015, Sensors.com, Inc.
 All Rights Reserved.
 
-The WiConnect Web App, WiConnect JavaScript API and WiConnect JS build system
+The ZentriOS Web App, ZentriOS JavaScript API and ZentriOS JS build system
 are provided free of charge by Sensors.com. The combined source code, and
 all derivatives, are licensed by Sensors.com SOLELY for use with devices
 manufactured by ACKme Networks, or devices approved by Sensors.com.
