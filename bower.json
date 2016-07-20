@@ -1,14 +1,14 @@
 {
-  "name": "wiconnectjs",
+  "name": "zentriosjs",
   "version": "1.2.2",
   "authors": [
-    "Andrew Mitchell <andrew.mitchell@ack.me>"
+    "Andrew Mitchell <brew@zentri.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ackme/WiConnectJS.git"
+    "url": "git@github.com:ackme/ZentriOSJS.git"
   },
-  "description": "Interface with WiConnect Hardware",
+  "description": "Interface with ZentriOS Hardware",
   "main": "main.js",
   "private": false,
   "ignore": [

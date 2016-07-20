@@ -4,12 +4,12 @@
   "version": "1.2.2",
   "author": {
     "name": "Andrew Mitchell",
-    "email": "andrew.mitchell@ack.me"
+    "email": "brew@zentri.com"
   },
   "main": "./lib/main",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ackme/WiConnectJS.git"
+    "url": "git@github.com:ackme/ZentriOSJS.git"
   },
   "dependencies": {
     "superagent": "^0.21.0"
