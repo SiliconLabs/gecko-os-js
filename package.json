@@ -1,6 +1,6 @@
 {
   "name": "zentriosjs",
-  "description": "Interface with WiConnect Hardware",
+  "description": "Interface with Zentri Hardware",
   "version": "1.2.2",
   "author": {
     "name": "Andrew Mitchell",
@@ -9,7 +9,7 @@
   "main": "./lib/main",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ackme/ZentriOSJS.git"
+    "url": "git@github.com:zentri/ZentriOSJS.git"
   },
   "dependencies": {
     "superagent": "^0.21.0"
