@@ -1,6 +1,6 @@
 {
   "name": "geckoosjs",
-  "description": "Interface with Zentri Hardware",
+  "description": "Interface with Gecko OS Hardware",
   "version": "1.0.0",
   "author": {
     "name": "Andrew Mitchell",
