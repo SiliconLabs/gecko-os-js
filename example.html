@@ -24,12 +24,12 @@
   </head>
   <body>
     <h3>Setup</h3>
-    <p>In a terminal navigate to the ZentriOSJS directory and run:</p>
+    <p>In a terminal navigate to the Gecko_OSJS directory and run:</p>
     <pre>npm install</pre>
     <p>or</p>
     <pre>bower install</pre>
     <p>Refresh this page after bower installation complete.</p>
-    <h3>Configure ZentriOS Device</h3>
+    <h3>Configure Gecko OS Device</h3>
       <pre>nup -s
 set wl o e 1
 set ht s e 1
@@ -37,11 +37,11 @@ set ht s c *
 save
 reboot</pre>
     <p>Note the device IP address</p>
-    <h3>Using ZentriOSJS API</h3>
+    <h3>Using Gecko_OSJS API</h3>
     <p>Open Developer Tools - F12<br> Open Console </p>
     <h4>Instantiating a device</h4>
-    <pre>var device = new ZentriOSDevice({host: 'http://[deviceIP]' <span>[, auth: {user: 'username', pass: 'password'}]</span>});</pre>
-    <p>example: <pre>var device = new ZentriOSDevice({host: 'http://12.34.56.78'});</pre></p>
+    <pre>var device = new Gecko_OSJS({host: 'http://[deviceIP]' <span>[, auth: {user: 'username', pass: 'password'}]</span>});</pre>
+    <p>example: <pre>var device = new Gecko_OSJS({host: 'http://12.34.56.78'});</pre></p>
     <h4>Issue command to device</h4>
     <pre>device.[command](<span>[{args: 'command_arguments' [, flags: 0]}]</span>);</pre>
     <p>example: <pre>device.ver();<br>device.ls();<br>device.ls({args: '-v'});</pre></p>
@@ -67,7 +67,7 @@ versionRequest.always(function(resp) {
 versionRequest.done(function(resp) {
   console.log('success!');
   console.log('response: ', resp);
-  console.log('ZentriOS Version:', resp.response);
+  console.log('Gecko OS Version:', resp.response);
 });
 
 <span>//setup failure function for when HTTP error received</span>
@@ -120,9 +120,9 @@ ws.onmessage = function(event) {
 <span>// function to execute when the socket has been opened successfully</span>
 ws.onopen = function() {
   <span>// log a message once websocket connection handshake is complete</span>
-  console.log('WebSocket open to ZentriOS device!');
+  console.log('WebSocket open to Gecko OS device!');
 
-  <span>// use 'list' command using a serial terminal, or using ZentriOSJS
+  <span>// use 'list' command using a serial terminal, or using Gecko_OSJS
   // open streams on the device will be displayed including a 'WEBS' stream
   // indicating the open websocket
   // e.g. using serial terminal
@@ -130,10 +130,10 @@ ws.onopen = function() {
   // ! # Type  Info
   // # 0 WEBS  12.34.56.78:80 12.34.56.78:54460
 
-  // now that the websocket is connected, send a message to the ZentriOS device</span>
+  // now that the websocket is connected, send a message to the Gecko OS device</span>
   ws.send('I am a teapot.');
 
-  <span>// using a serial terminal, or using ZentriOSJS read the stream
+  <span>// using a serial terminal, or using Gecko_OSJS read the stream
   // e.g. using serial terminal
   // > read 0 14
   // I am a teapot.</span>
@@ -142,7 +142,7 @@ ws.onopen = function() {
   ws.close();
 
   <span>// note: the websocket will not be immediately closed
-  // ZentriOS will keep the websocket open until all stream data has been read
+  // Gecko OS will keep the websocket open until all stream data has been read
   // e.g.
   // > read 0 1
   // > [2015-03-23 | 03:21:37: Closed: 0]</span>
