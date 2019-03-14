@@ -6,7 +6,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ackme/ZentriOSJS.git"
+    "url": "git://github.com/SiliconLabs/gecko_os_js.git"
   },
   "description": "Interface with Gecko OS Hardware",
   "main": "main.js",
