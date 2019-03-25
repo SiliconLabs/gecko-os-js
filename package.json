@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "author": {
     "name": "Andrew Mitchell",
-    "email": "brew@zentri.com"
+    "email": "DL.GOS-Webapp@silabs.com"
   },
   "main": "./lib/main",
   "repository": {
     "type": "git",
-    "url": "git@github.com:zentri/ZentriOSJS.git"
+    "url": "git://github.com/SiliconLabs/gecko-os-js.git"
   },
   "dependencies": {
     "superagent": "^0.21.0"
