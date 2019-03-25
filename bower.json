@@ -2,11 +2,11 @@
   "name": "geckoosjs",
   "version": "1.2.2",
   "authors": [
-    "Andrew Mitchell <brew@zentri.com>"
+    "Andrew Mitchell <DL.GOS-Webapp@silabs.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:ackme/ZentriOSJS.git"
+    "url": "git://github.com/SiliconLabs/gecko_os_js.git"
   },
   "description": "Interface with Gecko OS Hardware",
   "main": "main.js",
