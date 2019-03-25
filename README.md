@@ -1,6 +1,6 @@
 # Gecko OS JavaScript API
 
-This JavaScript API is available for two Silicon Labs modules, AMW007 and WMG160P. The source code for each module is available in this repository on their respective branches.
+This JavaScript API is available for two Silicon Labs modules, AMW007 and WGM160P. The source code for each module is available in this repository on their respective branches.
 
 ## Cloning the repository
 
