@@ -419,29 +419,3 @@ ws.onopen = function() {
   // > [2015-03-23 | 03:21:37: Closed: 0]
 };
 ```
-
-## Licence
-
-Gecko OS Web App, Gecko OS JS API Library & Gecko OS JS Build System
-
-Copyright (C) 2017, Silicon Labs.
-All Rights Reserved.
-
-The Gecko OS Web App, Gecko OS JavaScript API and Gecko OS JS build system
-are provided free of charge by Sensors.com. The combined source code, and
-all derivatives, are licensed by Sensors.com SOLELY for use with devices
-manufactured by ACKme Networks, Zentri, Silicon Labs, or devices approved by Silicon Labs.
-
-Use of this software on any other devices or hardware platforms is strictly
-prohibited.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR AS IS AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
-SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
-OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
-OF SUCH DAMAGE.
